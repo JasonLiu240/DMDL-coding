@@ -3,9 +3,26 @@
 <head>
 	<title>Quiz</title>
 	<style type="text/css">
-		.answer{
+		@import url('https://fonts.googleapis.com/css?family=Chilanka&display=swap');
+		body{
+			background-color: lightgrey;
+		}
+		p{
+			font-family: 'Chilanka', cursive;
+			color:blue;
+
+		}
+		li{
+			font-family: 'Chilanka', cursive;
+			line-height: 1.5em;
+		}
+		.correctanswer{
 			color:green;
 		}
+		.feedback{
+			color:red;
+		}
+
 	</style>
 </head>
 <body>
@@ -13,29 +30,29 @@
 		<h2>HTML</h2>
 			<h3>Question 1</h3>
 	<hr>
-				<p> What tag should I use if I want to add an external javascript file</p>
-				<ol type=A>
-					<li class="answer">script</li> <!-- set green -->
+				<p> What tag should I use if I want to add an external <b>javascript file</b></p>
+				<ol type="A">
+					<li class="correctanswer">script</li> <!-- set green -->
 					<li>javascript</li>
 					<li>include</li>
 					<li>style</li>
 				</ol>
 			<h3>Question 2 </h3>
 	<hr>
-				<p> What tag should I use if I want to add an external css file</p>
-				<ol type=A>
+				<p> What tag should I use if I want to add an external <b>css file</b></p>
+				<ol type="A">
 					<li>script</li>
 					<li>javascript</li>
 					<li>include</li>
 					<li>style</li>
 				</ol>
-				<p>Feedbake: The answer is D</p>
+				<p class="feedback">Feedback: The answer is D</p>
 		<h2>CSS</h2>
 			<h3>Question 1</h3>
 	<hr>
-				<p>What tag should I use if I want to add an external Javascript file</p>
-				<ol type=A>
-					<li class="answer">script</li> <!-- set green -->
+				<p>What tag should I use if I want to add an external <b>Javascript file</b></p>
+				<ol type="A">
+					<li class="correctanswer">script</li> <!-- set green -->
 					<li>javascript</li>
 					<li>include</li>
 					<li>style</li>
