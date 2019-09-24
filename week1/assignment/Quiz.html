@@ -5,11 +5,11 @@
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css?family=Chilanka&display=swap');
 		body{
-			background-color: lightgrey;
+			background-color: rgb(171,200,220);
 		}
 		p{
 			font-family: 'Chilanka', cursive;
-			color:blue;
+			
 
 		}
 		li{
@@ -17,10 +17,27 @@
 			line-height: 1.5em;
 		}
 		.correctanswer{
-			color:green;
+			background-color:lightgreen;
+			padding: 5px;
+			width:100%;
+			border-radius: 10px;
+			box-shadow: 5px 5px rgb(0,0,0,50%)
+		}
+		.wronganswer{
+			background-color: rgb(254,136,136);
+			padding: 5px;
+			width:100%;
+			border-radius: 10px;
+			box-shadow: 5px 5px rgb(0,0,0,50%)
 		}
 		.feedback{
-			color:red;
+			background-color:rgb(254,136,136);
+			width:200px;
+			border-radius: 5px;
+			border:solid;
+			padding:5px;
+			box-shadow: 5px 5px rgb(0,0,0,50%);
+
 		}
 
 	</style>
@@ -43,7 +60,7 @@
 				<ol type="A">
 					<li>script</li>
 					<li>javascript</li>
-					<li>include</li>
+					<li class="wronganswer">include</li>
 					<li>style</li>
 				</ol>
 				<p class="feedback">Feedback: The answer is D</p>
