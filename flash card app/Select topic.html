@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Select Topics</title>
+	<style type="text/css">
+		header{
+			height: 50px;
+		}
+		section{
+			background-color: rgb(248, 248, 248);
+			display: flex;
+			justify-content: center;
+			height: 500px;
+			align-items:center;
+		}
+		#content{
+			background-color: white;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			height: 450px;
+			width: 700px;
+			line-height: 0.5em;
+		}
+		footer{
+			background-color: rgb(248, 248, 248);
+			height: 150px;
+			display: flex;
+			justify-content: space-around;
+		}
+		#start{
+			height: 50px;
+			background-color: rgb(218,218,218);
+			color: rgb(163,163,163);
+		}
+		progress{
+			width: 550px;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Select Topics</h1>
+	</header>
+	<section>
+		<div id="content">
+			<h2>HTML</h2>
+			<label><input type="checkbox" id="chboxA" name="chBoxGroup" value="HTML">Questions Mastered 32/100</label>
+			<progress value="32" max="100"></progress>
+			<h2>CSS</h2>
+			<label><input type="checkbox" id="chboxB" name="chBoxGroup" value="CSS">Questions Mastered 76/100</label>
+			<progress value="76" max="100"></progress>
+			<h2>Javascript</h2>
+			<label><input type="checkbox" id="chboxC" name="chBoxGroup" value="Javascript">Questions Mastered 32/100</label>
+			<progress value="32" max="100"></progress>
+			<h2>Accessiblity</h2>
+			<label><input type="checkbox" id="chboxD" name="chBoxGroup" value="Accessiblity">Questions Mastered 23/100</label>
+			<progress value="23" max="100"></progress>
+		</div>
+	</section>
+	<footer>
+		<button id="start">Start Quiz</button>
+		<p></p>
+	</footer>
+</body>
+</html>
