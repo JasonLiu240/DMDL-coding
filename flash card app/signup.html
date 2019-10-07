@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up</title>
+	<style type="text/css">
+		header{
+			display: flex;
+			justify-content: center;
+		}
+		section{
+			background-color: rgb(248,248,248);
+			height: 600px;
+			display: flex;
+			justify-content: center;
+		}
+		#signup{
+			background-color: white;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 500px;
+			height: 400px;
+			margin-top: 20px;
+		}
+		#name{
+			display: flex;
+			justify-content: space-between;
+			width: 300px;
+		}
+		#age{
+			display: flex;
+
+		}
+		h2{
+			font-size: 18px;
+			margin: 10px;
+		}
+		a{
+			font-size: 18px;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1> Sign Up </h1>
+	</header>
+	
+	<section>	
+	<div id="signup">
+		<h2>Name</h2>
+		<div id="name">
+			<input type="text" placeholder="first name" name="first name">
+			<input type="text" placeholder="last name"  name="last name">
+		</div>	
+		<h2>Age</h2>
+		<div id="age">
+			<input type="number" placeholder="age" name="age">
+		</div>
+		<h2>Password</h2>
+		<div id="password">
+			<input type="password" placeholder="password" name="password">
+			<input type="password" placeholder="confirm password" name="password">
+		</div>
+		<h2>select your identity</h2>
+		<div id="identity">
+			<select name="identity">
+				<option value="student">Student</option>
+				<option value="instructor">Instructor</option>
+			</select>
+		</div>
+		<h2>Practice reminders</h2>
+		<div id="reminder">
+			<label><input type="checkbox" id="chboxA" name="chboxgroup" value="email">e-mail</label>
+			<label><input type="checkbox" id="chboxB" name="chboxgroup" value="text">text message</label>
+		</div>
+		<a href="http://google.com">sign up</a>
+	</div>
+</section>
+</body>
+</html>
