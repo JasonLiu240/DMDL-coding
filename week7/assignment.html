@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let today = new Date();
+		console.log(today.getHours());
+		let todayHours = today.getHours();
+
+		if(todayHours>=5&&todayHours<=11){
+			console.log("good morning");
+		}
+		else if(todayHours>=12&&todayHours<=17){
+			console.log("good afternoon");
+		}
+		else if(todayHours>=18||todayHours<=4){
+			console.log("good evening");
+		}
+	</script>
+</body>
+</html>
