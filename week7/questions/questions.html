@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Question</title>
+	<style type="text/css">
+		header{
+			display: flex;
+			justify-content: space-between;
+		}
+		#end{
+			height: 30px;
+			border-color:blue;
+			color: blue;
+		}
+		section{
+			background-color: rgb(248, 248, 248);
+			display: flex;
+			justify-content: center;
+			height: 500px;
+		}
+		#question{
+			background-color: white;
+			display: flex;
+			flex-direction: column;
+			margin: 50px;
+			height: 250px;
+			width: 500px;
+			margin-top:8px;
+			box-shadow: 3px 3px lightgrey;
+		}
+		footer{
+			display: flex;
+			justify-content: space-between;
+		}
+		#progress{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+
+		}
+		#dot{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+		.correct{
+			width: 20px;
+			height: 20px;
+			border-radius: 10px;
+			background-color:rgb(204, 242, 205);
+		}
+		.incorrect{
+			width: 20px;
+			height: 20px;
+			border-radius: 10px;
+			background-color:rgb(242,202,208);
+		}
+		#check{
+			height: 30px;
+			background-color: rgb(73, 144,231);
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Quiz</h1>
+		<button id="end">End practice</button>
+	</header>
+	<section>
+		<div id="question">
+			<h2 id="currentQuestionHeader"></h2>
+			<p id="QuestionText"></p>
+			<ol id="ListItem" type="A">
+				<!-- <li><label><input type="radio" name="question1" value="A">script</label></li>
+				<li><label><input type="radio" name="question1" value="B">javascript</label></li>
+				<li><label><input type="radio" name="question1" value="C">include</label></li>
+				<li><label><input type="radio" name="question1" value="D">style</label></li> -->
+			</ol>
+		</div>
+	</section>
+	<footer>
+		<div id="progress">
+			<div id="dot">
+				<!-- <div class="correct"></div>
+				<div class="incorrect"></div>
+				<div class="correct"></div>
+				<div class="incorrect"></div>
+				<div class="correct"></div>
+				<div class="correct"></div> -->
+			</div>
+			<a href="http://google.com">view report</a>
+		</div>
+		<button id="check">Check Answer</button>
+	</footer>
+	<script type="text/javascript" src="questions.js"></script>
+	<script type="text/javascript" src="questionsmode.js"></script>
+</body>
+</html>
