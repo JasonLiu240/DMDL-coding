@@ -65,6 +65,8 @@ Your browser does not support the video tag.
 	const timestamp = document.querySelector("#timestamp");
 	const videoSelector = document.querySelector("#videoSelector");
 	const volumeRange = document.querySelector("#volumeRange");
+	
+
 	//make select list
 	for(let song in music){
 	const listItem = document.createElement("option");
@@ -72,15 +74,16 @@ Your browser does not support the video tag.
 	listItem.innerHTML = music[song].title;
 	videoSelector.appendChild(listItem);
 	}
-	//set volume
-	console.log(volumeRange);
-	var vid = document.getElementById("videoPlayer");
-	var sound = volumeRange.value;
+	
 
-	console.log(event);
+	//set volume
+	var vid = document.getElementById("videoPlayer");
+	
 	let updateVolume = () => {
 		vid.volume = event.target.value/100;
 	}
+	
+
 	//load video that is selected from the drop down
 	let loadVideo = () => {
 		document.querySelector("#mp4_src").src = videoSelector.value;
