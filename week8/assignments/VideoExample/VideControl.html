@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<!-- video player has ids for video and source element. We are not specififing the src attributet because we are loading the video via javascript -->
+<video id="videoPlayer" width="500"  controls>
+  <source id="mp4_src" type="video/mp4">
+  <source id="ogg_src" type="video/ogv">
+Your browser does not support the video tag.
+</video>
+<div>
+
+	<!-- dropdown will have the filename as values of each option -->
+	<select id="videoSelector">
+		<!-- <option value="videos/Flower.mp4">Flower</option>
+		<option value="videos/Jellyfish.mp4">Jellyfish</option>
+		<option value="videos/MorningMist.mp4">Morning Mist</option>
+		<option value="videos/Under.mp4">Under</option> -->
+	</select>
+
+	<!-- buttons -->
+	<button id="vidLoad_btn">load</button>
+	<button id="vidPlay_btn">play</button>
+	<button id="vidPause_btn">pause</button>
+	<span id="timestamp"></span>
+	<input type="range" min="0" max="100" value="50"  id="volumeRange">
+</div>
+<script type="text/javascript">
+	let music = [
+	{
+		title: "creative minds",
+		file: "music/creativeminds.mp3"
+	},
+	{
+		title: "going higher",
+		file: "music/goinghigher.mp3"
+	},
+	{
+		title: "happy rock",
+		file: "music/happyrock.mp3"
+	},
+	{
+		title: "little idea",
+		file: "music/littleidea.mp3"
+	},
+	{
+		title: "memories",
+		file: "music/memories.mp3"
+	},
+	{
+		title: "ukulele",
+		file: "music/ukulele.mp3"
+	}
+	]
+
+
+	//store all UI in in variables	
+	const videoPlayer = document.querySelector("#videoPlayer");
+	const vidLoad_btn = document.querySelector("#vidLoad_btn");
+	const vidPlay_btn = document.querySelector("#vidPlay_btn");
+	const vidPause_btn = document.querySelector("#vidPause_btn");
+	const timestamp = document.querySelector("#timestamp");
+	const videoSelector = document.querySelector("#videoSelector");
+	const volumeRange = document.querySelector("#volumeRange");
+	//make select list
+	for(let song in music){
+	const listItem = document.createElement("option");
+	listItem.setAttribute("value", music[song].file);
+	listItem.innerHTML = music[song].title;
+	videoSelector.appendChild(listItem);
+	}
+	//set volume
+	console.log(volumeRange);
+	var vid = document.getElementById("videoPlayer");
+	var sound = volumeRange.value;
+
+	console.log(event);
+	let updateVolume = () => {
+		vid.volume = event.target.value/100;
+	}
+	//load video that is selected from the drop down
+	let loadVideo = () => {
+		document.querySelector("#mp4_src").src = videoSelector.value;
+		videoPlayer.load();
+	}
+
+	//function to play video
+	let playVideo = () => {
+		videoPlayer.play();
+	}
+
+	//function to pause video
+	let pauseVideo = () => {
+		videoPlayer.pause();
+	}
+
+	//function to get time from the video player
+	//NOTE: 
+	let getTimestamp = (event) => {
+		timestamp.innerHTML = Math.round(event.target.currentTime);
+	}
+
+	//Add Event listeners too all the UI and point callbacks to functions
+
+	vidLoad_btn.addEventListener("click", loadVideo);
+	vidPlay_btn.addEventListener("click", playVideo);
+	vidPause_btn.addEventListener("click", pauseVideo);
+	videoPlayer.addEventListener("timeupdate", getTimestamp);
+	volumeRange.addEventListener("mousemove" , updateVolume);
+</script>
+
+
+</body>
+</html>
