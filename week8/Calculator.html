@@ -37,19 +37,19 @@
 		// do math and thten add content to item
 
 		let getSum = (number1, number2) =>{
-			return parseInt(number1) + parseInt(number2);
+			return parseFloat(number1) + parseFloat(number2);
 		}
 
 		let getSubtract = (number1, number2) =>{
-			return parseInt(number1) - parseInt(number2);
+			return parseFloat(number1) - parseFloat(number2);
 		}
 
-		let getDifference = (number1, number2) =>{
-			return  parseInt(number1) / parseInt(number2);
+		let getDivide = (number1, number2) =>{
+			return  parseFloat(number1) / parseFloat(number2);
 		}
 
 		let getProduct = (number1, number2) =>{
-			return  parseInt(number1) * parseInt(number2);
+			return  parseFloat(number1) * parseFloat(number2);
 		}
 		
 		let getSumAnswer = () =>{
@@ -63,9 +63,9 @@
 			operatorBox.innerHTML = "-";
 		}
 
-		let getDifferenceAnswer = () =>{
+		let getDivideAnswer = () =>{
 			
-			answerBox.innerHTML = getDifference(num1.value, num2.value);
+			answerBox.innerHTML = getDivide(num1.value, num2.value);
 			operatorBox.innerHTML = "/";
 		}
 
@@ -79,7 +79,7 @@
 		
 		add_btn.addEventListener("click", getSumAnswer);
 		subtract_btn.addEventListener("click", getSubtractAnswer);
-		divide_btn.addEventListener("click", getDifferenceAnswer);
+		divide_btn.addEventListener("click", getDivideAnswer);
 		multiply_btn.addEventListener("click", getProductAnswer);
 	</script>
 
