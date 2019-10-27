@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<input type="text" id="num1"> <span id="operatorBox"></span> <input type="text" id="num2"> = <span id="answerBox"></span>
+	<div>
+		<button id="add_btn">+</button><button id="subtract_btn">-</button><button id="divide_btn">÷</button><button id="multiply_btn">×</button>
+	</div>
+
+	<script type="text/javascript">
+		
+		// storing operator special charectors so you could easily refence them with dot notatin 
+		// (ie. opertators.add)
+		const operators = {
+			add : "+",
+			divide: "÷",
+			multiply: "×",
+			subtract: "-"
+		}
+
+		// store all of your buttons, input fields, and spans in variables
+		
+		let num1 = document.querySelector("#num1");
+		let num2 = document.querySelector("#num2");
+		let operatorBox = document.querySelector("#operatorBox");
+		let answerBox = document.querySelector("#answerBox");
+		let add_btn = document.querySelector("#add_btn");
+		let subtract_btn = document.querySelector("#subtract_btn");
+		let divide_btn = document.querySelector("#divide_btn");
+		let multiply_btn = document.querySelector("#multiply_btn");
+
+
+		// create 4 function getSum, getDifference, getDifference, getProduct
+		// do math and thten add content to item
+
+		let getSum = (number1, number2) =>{
+			return parseInt(number1) + parseInt(number2);
+		}
+
+		let getSubtract = (number1, number2) =>{
+			return parseInt(number1) - parseInt(number2);
+		}
+
+		let getDifference = (number1, number2) =>{
+			return  parseInt(number1) / parseInt(number2);
+		}
+
+		let getProduct = (number1, number2) =>{
+			return  parseInt(number1) * parseInt(number2);
+		}
+		
+		let getSumAnswer = () =>{
+			var answer = getSum(num1.value, num2.value)
+			answerBox.innerHTML = answer;
+			operatorBox.innerHTML = "+";
+		}
+
+		let getSubtractAnswer = () =>{
+			
+			answerBox.innerHTML = getSubtract(num1.value, num2.value);
+			operatorBox.innerHTML = "-";
+		}
+
+		let getDifferenceAnswer = () =>{
+			
+			answerBox.innerHTML = getDifference(num1.value, num2.value);
+			operatorBox.innerHTML = "/";
+		}
+
+		let getProductAnswer = () =>{
+			
+			answerBox.innerHTML = getProduct(num1.value, num2.value);
+			operatorBox.innerHTML = "x";
+		}
+
+		// add event listners with a click event for all of your buttons and add callback functin name
+		
+		add_btn.addEventListener("click", getSumAnswer);
+		subtract_btn.addEventListener("click", getSubtractAnswer);
+		divide_btn.addEventListener("click", getDifferenceAnswer);
+		multiply_btn.addEventListener("click", getProductAnswer);
+	</script>
+
+</body>
+</html>
