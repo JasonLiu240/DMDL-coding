@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TOP 20 Most Popular Movies</title>
+	<style type="text/css">
+		body{
+			background-color: rgb(16, 33, 38);
+		}
+		header{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			color: white;
+		}
+		#link{
+			color: rgb(100,212,120);
+		}
+		#List{
+			display: flex;
+			flex-direction: row;
+			width: 1400px;
+			justify-content: space-around;
+			flex-wrap: wrap;
+		}
+		.div{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			width: 320px;
+			height: 630px;
+			margin:10px;
+			color: white;
+			border-style: solid;
+			border-color: grey;
+			border-radius: 5px;
+			background-color: rgb(36, 73, 58);
+			box-shadow: 5px 5px rgb(100, 100, 100);
+
+		}
+		.option{
+			margin-left: 10px;
+		}
+		.info{
+			margin-left: 10px;
+			margin-right: 10px;
+			text-align: justify;
+		}
+		.poster{
+			align-self: center;
+			width: 200px;
+		}
+		.rating{
+			text-align: center;
+		}
+		#footer{
+			font-size: 8px;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+
+	<header>
+		<h1 id="header">TOP 20 Most Popular Movies</h1>
+		<a id="link" href="https://www.themoviedb.org/movie/now-playing" target="_blank">Provide by<img src="https://www.themoviedb.org/assets/2/v4/logos/primary-green-d70eebe18a5eb5b166d5c1ef0796715b8d1a2cbc698f96d311d62f894ae87085.svg" width="40px"></a>
+	</header>
+	
+	<!-- div to put the data in -->
+	<div id="List"></div>
+
+	<!-- Just want to make a sign :D -->
+	<footer>
+		<p id="footer">Create by Shiu-Yu Liu 11/1/2019</p>
+	</footer>
+
+
+	<script type="text/javascript">
+		
+		//get api
+		const url = 'https://api.themoviedb.org/3/discover/movie?api_key=0a1f7a5748bd573a6e735dc565dbcb6e&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1'
+		
+		// get data
+		fetch(url)
+			.then((response)=>{
+				return response.json();
+			})
+			.then((data)=>{
+				console.log(data);
+				
+				//connect to id:List
+				const List = document.querySelector("#List");
+				
+
+				// build blocks for each movie.
+					//<div class="div">
+						//<h2>title</h2>
+						//<p>info</p>
+						//<img sre="" alt="">
+						//<h3>rating</h3>
+					//</div>
+
+				for(movie in data.results){
+					
+					const div = document.createElement("div");
+					div.className = "div";
+					
+					const option = document.createElement("h2");
+					option.className = "option"
+					
+					const info = document.createElement("p");
+					info.className = "info"
+					
+					const img = document.createElement("img");
+					img.className = "poster"
+					
+					const rating = document.createElement("h3");
+					rating.className = "rating"
+
+					
+					
+					//If title is too long, show only 20 letters and end with ...
+					//And Japanese movie name is still too long, need to subtract to 11 letters.
+					if(data.results[movie].original_title.length < 20){
+						option.innerHTML = data.results[movie].original_title;
+					}else if(data.results[movie].original_language == "ja"){
+						let titleShortJapan = data.results[movie].original_title.substring(0,11);
+						option.innerHTML = `${titleShortJapan}...`;
+					}else{
+						let titleShort = data.results[movie].original_title.substring(0,20);
+						option.innerHTML = `${titleShort}...`;
+					}
+					
+					// if the information is too long, show only 200 letter and end with ...
+					if(data.results[movie].overview.length < 200){
+						info .innerHTML = data.results[movie].overview;
+					}else{
+						let infoShort = data.results[movie].overview.substring(0,200);
+						info .innerHTML = `${infoShort}...`;
+					}
+
+					//Show poster. If the image is dead, show the text"Poster of ..."
+					img.setAttribute("src", `https://image.tmdb.org/t/p/w300${data.results[movie].poster_path}`);
+					img.setAttribute("alt", `Poster of ${data.results[movie].original_title}`);
+					
+					//Show rating
+					rating.innerHTML = `Rating:${data.results[movie].vote_average}/10`;
+
+					//appending into a <div class="div"></div>
+					div.appendChild(option);
+					div.appendChild(info);
+					div.appendChild(img);
+					div.appendChild(rating);
+					
+					//appending into <div id="List"></div>
+					List.appendChild(div);
+					}
+			});
+
+	</script>
+
+</body>
+</html>
