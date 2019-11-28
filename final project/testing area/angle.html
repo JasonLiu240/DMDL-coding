@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		
+		#box{
+			display: flex;
+			justify-content: center;
+		}
+
+		#selection{
+			width: 500px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+		.btn{
+			top: 500px;
+			position: relative;
+		}
+
+		#base{
+			height: 5px;
+			width: 200px;
+			background-color: green;
+			position: fixed;
+			top: 500px;
+		}
+		#line{
+			height: 5px;
+			width: 200px;
+			background-color: green;
+			position: fixed;
+			top: 500px;
+			}
+		#line.acute{
+			animation-name: myAniAcute;
+			animation-duration: 3s;
+			animation-timing-function: ease-out;
+			animation-direction: normal;
+			animation-fill-mode: forwards;
+			animation-play-state: running;
+			animation-iteration-count: infinite;
+		}
+
+		@keyframes myAniAcute{
+			0%{
+				transform: rotate(0deg);
+				transform-origin: left;
+			}
+			
+			100%{
+				transform: rotate(-90deg);
+				transform-origin: left;
+			}
+		}
+
+		#line.right{
+			transform: rotate(-90deg);
+			transform-origin: left;
+			}
+
+		#line.obtuse{
+			animation-name: myAniRight;
+			animation-duration: 3s;
+			animation-timing-function: ease-out;
+			animation-direction: normal;
+			animation-fill-mode: forwards;
+			animation-play-state: running;
+			animation-iteration-count: infinite;
+		}
+
+		@keyframes myAniRight{
+			0%{
+				transform: rotate(-90deg);
+				transform-origin: left;
+			}
+			
+			100%{
+				transform: rotate(-180deg);
+				transform-origin: left;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1></h1>
+	</header>
+	<div id="box">
+		<div id="base"></div>
+		<div id="line"></div>
+		<p id="display"></p>
+
+	<div id="selection">
+		<button class="btn" id="acute"> Acute angle</button>
+		<button class="btn" id="right"> Right angle</button>
+		<button class="btn" id="obtuse"> Obtuse angle</button>
+	</div>
+
+
+
+		<script type="text/javascript">
+			const acute = document.querySelector("#acute");
+			const right = document.querySelector("#right");
+			const obtuse = document.querySelector("#obtuse");
+
+
+			acute.addEventListener("click", ()=>{
+			line.classList.add("acute");
+			line.classList.remove("right");
+			line.classList.remove("obtuse");
+				});
+
+			right.addEventListener("click", ()=>{
+			line.classList.remove("acute");
+			line.classList.add("right");
+			line.classList.remove("obtuse");
+				});
+
+			obtuse.addEventListener("click", ()=>{
+			line.classList.remove("acute");
+			line.classList.remove("right");
+			line.classList.add("obtuse");
+				});
+		</script>
+	</div>
+
+</body>
+</html>
