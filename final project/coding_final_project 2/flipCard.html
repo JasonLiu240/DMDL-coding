@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body{
+			background-image: url("background_name_of_angles.JPEG");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			width: 1440px;
+			height: 700px;
+		}
+
+		.box{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+			top: 280px;
+			left: 250px;
+			position: fixed;
+			width: 900px;
+
+			}
+
+			.flipcard{
+			background-color: transparent;
+			width: 250px;	
+			height: 250px;
+			perspective: 1000px;
+		}
+
+		.flipcard-inner{
+			position: relative;
+  			width: 100%;
+			height: 100%;
+			text-align: center;
+			transition: transform 1s;
+			transform-style: preserve-3d;
+		}
+
+		.flipcard:hover .flipcard-inner{
+			transform: rotateY(180deg);
+		}
+
+		.front , .back{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			backface-visibility: hidden;
+		}
+
+		.back{
+			background-color: transparent;
+			transform: rotateY(180deg);
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+		}
+
+		#clock{
+			left: 50px;
+		}
+
+		h2, h3{
+			color: white;
+		}
+
+		#next{
+	      position: fixed;
+	      top: 700px;
+	      left: 1100px;
+	      color: white;
+	      font-size: 48px;
+	    }
+    	#goback{
+	      position: fixed;
+	      top: 700px;
+	      left: 200px;
+	      color: white;
+	      font-size: 48px;
+	    }
+
+	</style>
+</head>
+
+<body>
+
+	<div class="box">
+
+		<div class="flipcard">
+			<div class="flipcard-inner">
+				<div class="front">
+					<img src="acute-removebg-preview.png" style="width: 220px; height: 220px;">
+				</div>
+
+				<div class="back">
+					<h2>Acute</h2>
+					<h3>Between 0 and 90 degrees</h3>
+				</div>
+			</div>
+		</div>
+
+		<div class="flipcard">
+			<div class="flipcard-inner">
+				<div class="front">
+					<img src="right_angle-removebg-preview.png" style="width: 320px; height: 220px;">
+				</div>
+
+				<div class="back">
+					<h2>Right</h2>
+					<h3>A 90 degrees angle</h3>
+				</div>
+			</div>
+		</div>
+
+		<div class="flipcard">
+			<div class="flipcard-inner">
+				<div class="front" id="clock">
+					<img src="obtuse-removebg-preview.png" style="width: 210px; height: 210px;">
+				</div>
+
+				<div class="back">
+					<h2>Obtuse</h2>
+					<h3>Between 90 and 180 degrees</h3>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+	<a href="angle.html" id="next">Next</a>
+   <a href="final project.html" id="goback">Back</a>
+</body>
+
+</html>
