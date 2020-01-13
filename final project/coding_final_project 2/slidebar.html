@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body{
+			background-image: url("background_name_of_angles.JPEG");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			width: 1440px;
+			height: 700px;
+		}
+		#base{
+			width: 200px;
+			height: 7px;
+			background-color: white;
+			top: 400px;
+			left: 730px;
+			position: fixed;
+		}
+		#line{
+			width: 220px;
+			height: 5px;
+			background-color: white;
+			top: 430px;
+			left: 730px;
+			position: fixed;
+			background-color: rgb(255, 128,0);
+		}
+		#dot{
+			width: 15px;
+			height: 15px;
+			border-radius: 7.5px;
+			background-color: white;
+			position: fixed;
+			top: 425px;
+			left: 723px;
+		}
+		#compasses{
+			width: 650px;
+			position: fixed;
+			top: 175px;
+			left: 415px;
+		}
+		#anglebar{
+			width: 300px;
+			position: fixed;
+			top: 500px;
+			left: 590px;
+		}
+		#angle{
+			width: 310px;
+			position: fixed;
+			top: 510px;
+			left: 690px;
+		}
+		.display{
+			color: white;
+			font-size: 24px;
+		}
+
+		#next{
+	      position: fixed;
+	      top: 700px;
+	      left: 1100px;
+	      color: white;
+	      font-size: 48px;
+	    }
+	    #back{
+	      position: fixed;
+	      top: 700px;
+	      left: 200px;
+	      color: white;
+	      font-size: 48px;
+    	}
+	</style>
+</head>
+<body>
+	<!-- <div id="base"></div> -->
+	<img id="compasses" src="Group15.png">
+	<div id="line" style="transform-origin: left;"></div>
+	<div id="dot"></div>
+	
+
+	<input type="range" min="0" max="180" value="0"  id="anglebar">
+	<div id="angle">
+		<p class="display" id="displayAngle"></p>
+		<p class="display" id="displayName"></p>
+	</div>
+
+	<a href="final page 2 pizza cut.html" id="next">Next</a>
+   	<a href="angle.html" id="back">Back</a>
+
+	<script type="text/javascript">
+		const line = document.querySelector("#line");
+		const anglebar = document.querySelector("#anglebar");
+		const displayAngle = document.querySelector("#displayAngle");
+		const displayName = document.querySelector("#displayName");
+
+
+		let SetAngle = () =>{
+		line.style.transform = `rotate(-${event.target.value}deg)`;
+		displayAngle.innerHTML = `${event.target.value} deg`;
+		
+		if (event.target.value < 90) {
+			displayName.innerHTML = "Acute angle"
+		}else if(event.target.value > 90){
+			displayName.innerHTML = "Obtuse angle"
+		}else{
+			displayName.innerHTML = "Right angle"
+		};
+
+	}
+
+
+		anglebar.addEventListener("mousemove" , SetAngle);
+
+
+	</script>
+</body>
+</html>
