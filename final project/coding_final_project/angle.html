@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		
+		body{
+			background-image: url("background_name_of_angles.JPEG");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			width: 1440px;
+			height: 700px;
+		}
+		#box{
+			display: flex;
+			justify-content: center;
+		}
+
+		#selection{
+			width: 500px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+
+		}
+		.btn{
+			height: 30px;
+			width: 100px;
+			top: 550px;
+			left: 480px;
+			position: relative;
+		}
+
+		#base{
+			height: 5px;
+			width: 215px;
+			background-color: white;
+			position: fixed;
+			top: 400px;
+			left: 730px;
+		}
+		#line{
+			height: 5px;
+			width: 215px;
+			background-color: white;
+			position: fixed;
+			top: 400px;
+			left: 730px;
+			}
+		#line.acute{
+			animation-name: myAniAcute;
+			animation-duration: 6s;
+			animation-timing-function: ease-out;
+			animation-direction: normal;
+			animation-fill-mode: forwards;
+			animation-play-state: running;
+			animation-iteration-count: infinite;
+		}
+
+		@keyframes myAniAcute{
+			0%{
+				transform: rotate(0deg);
+				transform-origin: left;
+			}
+			50%{
+				transform: rotate(-90deg);
+				transform-origin: left;
+			}
+
+			100%{
+				transform: rotate(0deg);
+				transform-origin: left;
+			}
+		}
+
+		#line.right{
+			transform: rotate(-90deg);
+			transform-origin: left;
+			}
+
+		#line.obtuse{
+			animation-name: myAniRight;
+			animation-duration: 3s;
+			animation-timing-function: ease-out;
+			animation-direction: normal;
+			animation-fill-mode: forwards;
+			animation-play-state: running;
+			animation-iteration-count: infinite;
+		}
+
+		@keyframes myAniRight{
+			0%{
+				transform: rotate(-90deg);
+				transform-origin: left;
+			}
+			50%{
+				transform: rotate(-180deg);
+				transform-origin: left;
+			}
+			100%{
+				transform: rotate(-90deg);
+				transform-origin: left;
+			}
+		}
+
+		#instruction{
+			position: fixed;
+			color: white;
+			top: 450px;
+			left: 600px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		#Description{
+			top: 500px;
+			position: fixed;
+			font-size: 24px;
+		}
+		#next{
+	      position: fixed;
+	      top: 700px;
+	      left: 1100px;
+	      color: white;
+	      font-size: 48px;
+	    }
+	    #back{
+	      position: fixed;
+	      top: 700px;
+	      left: 200px;
+	      color: white;
+	      font-size: 48px;
+	    }
+	</style>
+</head>
+<body>
+
+	<div id="box">
+		<div id="base"></div>
+		<div id="line"></div>
+		<p id="display"></p>
+	</div>
+	<div id="selection">
+		<button class="btn" id="acute"> Acute angle</button>
+		<button class="btn" id="right"> Right angle</button>
+		<button class="btn" id="obtuse"> Obtuse angle</button>
+	</div>
+
+	<div id="instruction">
+		<h1 id="Name"></h1>
+		<p id="Description"></p>
+	</div>
+	<a href="slidebar.html" id="next">Next</a>
+   	<a href="flipCard.html" id="back">Back</a>
+
+
+	<script type="text/javascript">
+			const acute = document.querySelector("#acute");
+			const right = document.querySelector("#right");
+			const obtuse = document.querySelector("#obtuse");
+			const Name = document.querySelector("#Name");
+			const Description = document.querySelector("#Description");
+
+			acute.addEventListener("click", ()=>{
+				line.classList.add("acute");
+				line.classList.remove("right");
+				line.classList.remove("obtuse");
+				Name.innerHTML = "Acute angle";
+				Description.innerHTML = "Between 0 and 90 degrees"
+				});
+
+			right.addEventListener("click", ()=>{
+				line.classList.remove("acute");
+				line.classList.add("right");
+				line.classList.remove("obtuse");
+				Name.innerHTML = "Right angle";
+				Description.innerHTML = "An 90 degree angle"
+				});
+
+			obtuse.addEventListener("click", ()=>{
+				line.classList.remove("acute");
+				line.classList.remove("right");
+				line.classList.add("obtuse");
+				Name.innerHTML = "Obtuse angle";
+				Description.innerHTML = "Between 90 and 180 degrees"
+				});
+	</script>
+
+</body>
+</html>
